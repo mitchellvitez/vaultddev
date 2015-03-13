@@ -1,6 +1,6 @@
 # Vaultd website
 
-The stuff that powers vaultdstorage.com, in less than half a megabyte (As of February)
+The stuff that powers vaultdstorage.com, in less than half a megabyte (as of February)
 
 ## How to edit
 
@@ -11,6 +11,8 @@ Do not edit bootstrap or jquery or other library code.
 ## Style
 
 For js code, please follow http://nodeguide.com/style.html
+
+Php is pretty much hopeless. Try to use good variable names.
 
 Please read through utils.php and understand why those functions exist and when to use them before working on any server-side code
 
