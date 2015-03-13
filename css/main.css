@@ -5,6 +5,9 @@ p {
     font-family: 'Asap', sans-serif;
     font-size: 120%;
 }
+table{
+    font-family: Asap, sans-serif;
+}
 .navbar .navbar-nav {
     display: inline-block;
     float: none;

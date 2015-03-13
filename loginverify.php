@@ -18,16 +18,24 @@
     $email = sanitize($_POST['email'], $mysqli_connection);
     previousPageOnError(empty($email), $previousPage, "one or more form fields was left empty");
 
-    $query = "SELECT `password` FROM vitezme_vaultd.users WHERE `email` = '$email' LIMIT 1";
+    $query = "SELECT * FROM vitezme_vaultd.users WHERE `email` = '$email' LIMIT 1";
 
     $result = false;
     previousPageOnError(!$result = mysqli_query($mysqli_connection, $query), $previousPage, "query failure");
     previousPageOnError($result->num_rows == 0, $previousPage, "email not found in database");
     previousPageOnError($result->fetch_assoc()['password'] != $password, $previousPage, "either email or password was incorrect");
 
-    mysqli_close($mysqli_connection);
-
     session_start();
+
+    $result = false;
+    previousPageOnError(!$result = mysqli_query($mysqli_connection, $query), $previousPage, "query failure");
+    if ($result->fetch_assoc()['role'] == 'admin') {
+        $_SESSION['admin'] = true;
+        error_log("admin: ".$email." logged in");
+    }
+
+    mysqli_close($mysqli_connection);
+    
     $_SESSION['email'] = $email;
     $_SESSION['logged_in'] = true;
 

@@ -26,9 +26,10 @@ if(!isset($_SESSION['email']) or !isset($_SESSION['logged_in'])) {
             </div>
             <div id="navbar">
                 <ul class="nav navbar-nav">
-                    <li>Issues? Suggestions? <a style="display: inline-block" href="mailto:mitchell@vaultdstorage.com">Email a developer</a></li>
+                  <li><a href="//vaultdstorage.com">Home</a></li>
+                    <li><a href="mailto:info@vaultdstorage.com">Email us</a></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right" style="margin-left: 30px;">
                     <li><a href="profile">Profile</a>
                     </li>
                     <li><a href="boxes">My Boxes</a>

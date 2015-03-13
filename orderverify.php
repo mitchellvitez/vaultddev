@@ -25,6 +25,7 @@
 
     previousPageOnError(empty($boxnum) or empty($deliverydate) or empty($pickupdate), $previousPage, "one or more form fields was left empty");
     previousPageOnError(strtotime($pickupdate) < strtotime($deliverydate), $previousPage, "pickup date cannot be before delivery date");
+    previousPageOnError(strtotime($pickupdate) < strtotime($deliverydate.' + 14 days'), $previousPage, "pickup date cannot be more than two weeks after delivery date");
 
     $userid = userIdFromEmail($_SESSION['email'], $previousPage);
 

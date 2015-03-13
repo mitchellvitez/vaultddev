@@ -28,17 +28,34 @@
         }
         return num;
     }
-    var dt = new Date();
+    function addDays(date, days) {
+        var result = new Date(date);
+        result.setDate(date.getDate() + days);
+        return result;
+    }
+    var today = new Date();
+    var tomorrow = addDays(today, 1);
+    var dayAfter = addDays(today, 2);
+    var twoWeeks = addDays(today, 15);
     $('.del').attr({
-        "min" : dt.getFullYear() + "-" + zeroPad(dt.getMonth() + 1) + "-" + zeroPad(dt.getDate() + 1)
+        "min" : tomorrow.getFullYear() + "-" + zeroPad(tomorrow.getMonth() + 1) + "-" + zeroPad(tomorrow.getDate())
     });
     $('.pickup').attr({
-        "min" : dt.getFullYear() + "-" + zeroPad(dt.getMonth() + 1) + "-" + zeroPad(dt.getDate() + 2)
+        "min" : dayAfter.getFullYear() + "-" + zeroPad(dayAfter.getMonth() + 1) + "-" + zeroPad(dayAfter.getDate())
     });
     $('.del').attr({
-        "value" : dt.getFullYear() + "-" + zeroPad(dt.getMonth() + 1) + "-" + zeroPad(dt.getDate() + 1)
+        "value" : tomorrow.getFullYear() + "-" + zeroPad(tomorrow.getMonth() + 1) + "-" + zeroPad(tomorrow.getDate())
     });
     $('.pickup').attr({
-        "value" : dt.getFullYear() + "-" + zeroPad(dt.getMonth() + 1) + "-" + zeroPad(dt.getDate() + 2)
+        "value" : dayAfter.getFullYear() + "-" + zeroPad(dayAfter.getMonth() + 1) + "-" + zeroPad(dayAfter.getDate())
+    });
+    $('.pickup').attr("max", twoWeeks.getFullYear() + "-" + zeroPad(twoWeeks.getMonth() + 1) + "-" + zeroPad(twoWeeks.getDate()));
+
+    $('.del').change(function() {
+        var delivDate = new Date($('.del').val());
+        var minPickDate = addDays(delivDate, 1);
+        var pickDate = addDays(delivDate, 15);
+        $('.pickup').attr("max", pickDate.getFullYear() + "-" + zeroPad(pickDate.getMonth() + 1) + "-" + zeroPad(pickDate.getDate()));
+        $('.pickup').attr("min", minPickDate.getFullYear() + "-" + zeroPad(minPickDate.getMonth() + 1) + "-" + zeroPad(minPickDate.getDate()));
     });
 </script>

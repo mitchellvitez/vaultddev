@@ -40,9 +40,19 @@
 
   <?php } ?>
 
+<nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+            </div>
+            <div id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="login">Log in</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-
-	<div class="spacer"></div>
+	<!-- <div class="spacer"></div> -->
 	<div class="col-md-6 col-md-offset-3">
 		<img class="img-responsive center-block" src="img/box.png" />
 		<h3 class="text-center">Your closet away from home</h3>
@@ -50,7 +60,7 @@
 	</div>
 	<div class="container">
 	    <div class="col-md-4 col-md-offset-4">
-	    	<!-- signup --><a><div class="btn btn-primary center-block" type="button" data-toggle="modal" data-target="#notready">Start Storing More Simply</div></a>
+	    	<!-- signup --><a href="signup"><div class="btn btn-primary center-block" type="button" ><!-- data-toggle="modal" data-target="#notready" -->Start Storing More Simply</div></a>
 	    </div>
     </div>
     <div class="spacer"></div>
@@ -83,7 +93,7 @@
     <div id="pricing" class="container">
     	<div class="col-md-offset-4 col-md-4 text-center">
         	<h2>Simple, Affordable Pricing</h2>
-        	<p>We charge a flat rate per month per box</p>
+        	<p>$10 per month per box</p>
       	</div>
     </div>
     <div class="spacer"></div>
@@ -111,7 +121,7 @@
     <div class="spacer"></div>
     <div class="container">
 	    <div class="col-md-4 col-md-offset-4">
-        <!-- signup --><a><div class="btn btn-primary center-block" type="button" data-toggle="modal" data-target="#notready">Start Storing More Simply</div></a>
+        <!-- signup --><a href="signup"><div class="btn btn-primary center-block" type="button">Start Storing More Simply</div></a>
       </div>
     </div>
     <div class="spacer"></div>
