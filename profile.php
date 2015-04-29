@@ -20,26 +20,7 @@ if(!isset($_SESSION['email']) or !isset($_SESSION['logged_in'])) {
 </head>
 <body ng-app="vaultdapp">
     <?php include_once( "error.php"); ?>
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-            </div>
-            <div id="navbar">
-                <ul class="nav navbar-nav">
-                  <li><a href="//vaultdstorage.com">Home</a></li>
-                    <li><a href="mailto:info@vaultdstorage.com">Email us</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right" style="margin-left: 30px;">
-                    <li><a href="profile">Profile</a>
-                    </li>
-                    <li><a href="boxes">My Boxes</a>
-                    </li>
-                    <li><a href="order">Order Boxes</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <?php include_once("navbar.php"); ?>
     <div ng-view></div>
 </body>
 </html>
@@ -49,6 +30,8 @@ if(!isset($_SESSION['email']) or !isset($_SESSION['logged_in'])) {
       unset($_SESSION['thanks']);
       $boxnum = $_SESSION['boxnum'];
       unset($_SESSION['boxnum']);
+      $itemnum = $_SESSION['itemnum'];
+      unset($_SESSION['itemnum']);
       $deliverydate = $_SESSION['deliverydate'];
       unset($_SESSION['deliverydate']);
       $pickupdate = $_SESSION['pickupdate'];
@@ -63,9 +46,10 @@ if(!isset($_SESSION['email']) or !isset($_SESSION['logged_in'])) {
             <h4 class="modal-title">Thank You!</h4>
           </div>
           <div class="modal-body">
-            <p>Thank you for your order of <?= $boxnum; ?> boxes.</p>
-            <p>You will receive them on <?= date("F jS", strtotime($deliverydate)); ?>.</p>
-            <p>We will retrieve the filled boxes on <?= date("F jS", strtotime($pickupdate)); ?>.</p>
+            <p>Thank you for your order of <?= $boxnum; ?> boxes and <?= $itemnum; ?> items.</p>
+            <p>You will receive them on <?= date("F jS", strtotime($deliverydate)); ?>, and we will retrieve the filled boxes on <?= date("F jS", strtotime($pickupdate)); ?>. We will contact you the day before dropping off the boxes to let you know the time we will arrive.</p>
+            <p>Your Vaultd representative is Brett. Feel free to email him at <a href="mailto:brett@vaultdstorage.com">brett@vaultdstorage.com</a> with any questions or concerns.</p>
+            <p>Once we store the boxes, they will show up on this page.</p>
           </div>
           <div class="modal-footer">
             <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>

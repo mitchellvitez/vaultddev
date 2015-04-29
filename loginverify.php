@@ -10,13 +10,12 @@
     previousPageOnError($_POST['login'] != "true", $previousPage, "bad origin");
     previousPageOnError($mysqli_connection->connect_error, $previousPage, "failed connection ".$mysqli_connection->connect_error);
 
+    $email = sanitize($_POST['email'], $mysqli_connection);
+    previousPageOnError(empty($email), $previousPage, "one or more form fields was left empty");
     $unhashedPassword = sanitize($_POST['password'], $mysqli_connection);
     previousPageOnError(empty($unhashedPassword), $previousPage, "one or more form fields was left empty");
     $password = hashPassword($unhashedPassword);
     unset($unhashedPassword);
-
-    $email = sanitize($_POST['email'], $mysqli_connection);
-    previousPageOnError(empty($email), $previousPage, "one or more form fields was left empty");
 
     $query = "SELECT * FROM vitezme_vaultd.users WHERE `email` = '$email' LIMIT 1";
 
@@ -39,5 +38,5 @@
     $_SESSION['email'] = $email;
     $_SESSION['logged_in'] = true;
 
-    header('Location: profile'); 
+    header('Location: boxes'); 
 ?>

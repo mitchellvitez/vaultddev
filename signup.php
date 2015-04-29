@@ -2,7 +2,7 @@
 session_start();  
 if(isset($_SESSION['email']) and isset($_SESSION['logged_in'])) {
   if ($_SESSION['logged_in'] == true) {
-    header('Location: profile');
+    header('Location: boxes');
   }
 }
 ?>
@@ -76,7 +76,7 @@ if(isset($_SESSION['email']) and isset($_SESSION['logged_in'])) {
                   <input type="checkbox" name="update"> Receive occasional email updates
                 </label> &nbsp; &nbsp; 
                 <label>
-                  <input type="checkbox" required="required" name="terms"> I agree to <a href="terms">Terms of Service</a>
+                  <input type="checkbox" required="required" name="terms"> I agree to <a target="_blank" href="terms">Terms of Service</a>
                 </label></p>
               
               <p><input class="center-block btn btn-success" type="submit" name="submit" value="Sign Up" required="required"></p>

@@ -15,40 +15,24 @@
     }
 
     $mysqli_connection = getConnection();
-    $previousPage = "../boxes";
+    $previousPage = "../profile";
 
     previousPageOnError($mysqli_connection->connect_error, $previousPage, "failed connection ".$mysqli_connection->connect_error);
 
     $userid = userIdFromEmail($_SESSION['email'], $previousPage);
 
-    $query = "SELECT * FROM boxes WHERE user_id = $userid";
+    $query = "SELECT * FROM users WHERE id = $userid";
 
     $result = false;
     previousPageOnError(!$result = mysqli_query($mysqli_connection, $query), $previousPage, "query failure");
 
     $data = array();
     while($row = $result->fetch_assoc()){
+        unset($row['password']);
         $data[] = $row;
     }
-    if (json_encode($data) != "[]") {
-        echo json_encode($data);
-    }
-    else {
-        $query = "SELECT * FROM vitezme_vaultd.orders WHERE user_id = $userid";
-        $result = false;
-        previousPageOnError(!$result = mysqli_query($mysqli_connection, $query), $previousPage, "query failure");
-        if($result->num_rows != 0) {
-            $data = array();
-            $data["order"] = "pending";
-            while($row = $result->fetch_assoc()){
-                $data[] = $row;
-            }
-            echo json_encode($data);
-        }
-        else {
-            echo "[]";
-        }
-    }
+
+    echo json_encode($data);
     
     mysqli_close($mysqli_connection);
 ?>

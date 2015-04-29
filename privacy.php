@@ -4,9 +4,9 @@
    <?php include_once("head.php"); ?>
 </head>
 <body>
+  <?php include_once("navbar.php"); ?>
   <div class="container">
     <div class="col-md-offset-3 col-md-6">
-    <div class="spacer"></div>
         <h2 class="text-center">Privacy Policy</h2><p>
         This Privacy Policy governs the manner in which Vaultd collects, uses, maintains and discloses information collected from users (each, a "User") of the <a href="//vaultdstorage.com">vaultdstorage.com</a> website ("Site"). This privacy policy applies to the Site and all products and services offered by Vaultd.<br><br>
 

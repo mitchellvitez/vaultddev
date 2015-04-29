@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="canonical" href="https://www.vaultdstorage.com" />
   <?php include_once("head.php"); ?>
   <?php include("scripts.php"); ?>
 </head>
@@ -40,37 +41,24 @@
 
   <?php } ?>
 
-<nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-            </div>
-            <div id="navbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="login">Log in</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-	<!-- <div class="spacer"></div> -->
-	<div class="col-md-6 col-md-offset-3">
+  <?php include_once("navbar.php"); ?>
+
+<div class="container">
+	<div class="col-md-4 col-md-offset-4">
 		<img class="img-responsive center-block" src="img/box.png" />
 		<h3 class="text-center">Your closet away from home</h3>
-		<div class="spacer"></div>
 	</div>
-	<div class="container">
-	    <div class="col-md-4 col-md-offset-4">
-	    	<!-- signup --><a href="signup"><div class="btn btn-primary center-block" type="button" ><!-- data-toggle="modal" data-target="#notready" -->Start Storing More Simply</div></a>
-	    </div>
-    </div>
+</div>
+	
     <div class="spacer"></div>
-	<div id="how-it-works" class="container">
+	<div id="how-it-works" class="container greyback">
       	<div class="row col-md-12 text-center">
         	<h2>The Three-Step Process</h2>
       	</div>
     	<div class="col-md-4">
     		<h3 class="text-center">Free Box Drop-off</h3>
-    		<p>Request heavy-duty, waterproof, plastic boxes to your doorstep and get them by the very next day.</p>
+    		<p>Request <b>heavy-duty</b>, <b>waterproof</b>, plastic boxes to your doorstep and get them by the very next day.</p>
         <p>&nbsp;</p>
         <img class="img-responsive center-block" src="img/door.png" style="max-width: 70%" />
         <div class="spacer"></div>
@@ -90,14 +78,32 @@
         <div class="spacer"></div>
     	</div>
     </div>
+
+<div class="container greyback">
+      <div class="col-md-4 col-md-offset-4">
+        <!-- signup --><a href="signup"><div class="btn btn-primary center-block" type="button" ><!-- data-toggle="modal" data-target="#notready" -->Start Storing More Simply</div></a>
+      </div>
+    </div>
+    <div class="container spacer greyback"></div>
+
+    <div class="spacer"></div>
     <div id="pricing" class="container">
-    	<div class="col-md-offset-4 col-md-4 text-center">
+    	<div class="col-md-offset-2 col-md-8 text-center">
         	<h2>Simple, Affordable Pricing</h2>
-        	<p>$10 per month per box</p>
+        	<h3>$10 per month per box</h3>
+          <p>$10 per month per medium item (guitars, pillow and comforter sets, longboards)</p>
+          <p>$20 per month per large item (bookcases, large bicycles)</p>
+          <p>$30 per month per extra-large item (your king-size mattress)</p>
       	</div>
     </div>
     <div class="spacer"></div>
-    <div id="why" class="container">
+    <div class="container">
+        <div class="col-md-6 col-md-offset-3">
+            <iframe style="width: 100%; height: 315px" src="https://www.youtube.com/embed/39pjrFl51TY" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="spacer"></div>
+    <div id="why" class="container greyback">
     	<div class="row col-md-12 text-center">
         	<h2>What can you use the space for?</h2>
       	</div>
@@ -118,13 +124,13 @@
     		<p>Store all the things you have that can't be bought in the states, and avoid dragging things back and forth across borders.</p>
     	</div>
     </div>
-    <div class="spacer"></div>
-    <div class="container">
+    <div class="container spacer greyback"></div>
+    <div class="container greyback">
 	    <div class="col-md-4 col-md-offset-4">
         <!-- signup --><a href="signup"><div class="btn btn-primary center-block" type="button">Start Storing More Simply</div></a>
       </div>
     </div>
-    <div class="spacer"></div>
+    <div class="container spacer greyback"></div>
     <div class="col-md-4 col-md-4 col-md-4 news">
         <div class="text-center">
           <a href="http://www.michigandaily.com/news/local-start-offers-new-storage-options"><img class="img-responsive icon center-block" style="padding: 10%" src="img/md.jpg"></img></a>
@@ -141,6 +147,9 @@
         </div>
     </div>
     <div class="spacer"></div>
+    <div class="container">
+    	<p class="text-center">Find us on <a href="https://www.facebook.com/vaultdstorage">Facebook</a> and <a href="https://twitter.com/vaultdstorage">Twitter</p>
+    </div>
   	<!-- <footer style="background: #eeeeee">
   		<div id="contact" class="container text-center">
   			<p><a href="mailto:info@vaultdstorage.com">info@vaultdstorage.com</a></p>

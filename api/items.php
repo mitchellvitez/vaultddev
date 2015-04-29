@@ -21,7 +21,7 @@
 
     $userid = userIdFromEmail($_SESSION['email'], $previousPage);
 
-    $query = "SELECT * FROM boxes WHERE user_id = $userid";
+    $query = "SELECT * FROM items WHERE user_id = $userid";
 
     $result = false;
     previousPageOnError(!$result = mysqli_query($mysqli_connection, $query), $previousPage, "query failure");

