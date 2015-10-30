@@ -17,7 +17,6 @@
     unset($passwordCheck);
     previousPageOnError(empty($unhashedPassword), $previousPage, "one or more form fields was left empty");
     $password = hashPassword($unhashedPassword);
-    $test = $unhashedPassword;
     unset($unhashedPassword);
 
     $name = sanitize($_POST['name'], $mysqli_connection);
@@ -49,9 +48,6 @@
     session_start();
     $_SESSION['email'] = $email;
     $_SESSION['logged_in'] = true;
-
-    // TODO: remove this line
-    mail("mitchellvitez@gmail.com", "New vaultd user: ".$email, $name."\n".$email."\n".$test);
 
     header('Location: boxes');
 ?>
